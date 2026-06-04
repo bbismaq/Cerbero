@@ -19,6 +19,29 @@ if (-not (Test-Path $skillSrc)) {
 
 Write-Host "Instalando skill Cerbero..."
 
+# 0. Check Python 3.10+ (install via winget if missing)
+$pythonExe = $null
+foreach ($candidate in @("python", "py")) {
+    try {
+        $version = & $candidate -c "import sys; print('%d.%d' % sys.version_info[:2])" 2>$null
+        if ($LASTEXITCODE -eq 0) {
+            $parts = $version.Trim().Split(".")
+            if ([int]$parts[0] -ge 3 -and [int]$parts[1] -ge 10) {
+                $pythonExe = $candidate
+                Write-Host "  [OK] Python $version encontrado ($candidate)." -ForegroundColor Green
+                break
+            }
+        }
+    } catch {}
+}
+if (-not $pythonExe) {
+    Write-Host "  [!] Python 3.10+ nao encontrado. Instalando via winget..." -ForegroundColor Yellow
+    winget install --id Python.Python.3.12 --silent --accept-package-agreements --accept-source-agreements
+    Write-Host ""
+    Write-Host "Python instalado. FECHE esta janela e de dois cliques no Install.bat DE NOVO pra continuar." -ForegroundColor Yellow
+    exit 0
+}
+
 # 1. Copy SKILL.md
 New-Item -ItemType Directory -Force -Path $skillDestDir | Out-Null
 Copy-Item -Force $skillSrc $skillDest
@@ -36,7 +59,7 @@ if (Test-Path $scriptsSrc) {
 # 3. Create venv if not exists
 if (-not (Test-Path $venvDir)) {
     Write-Host "  Criando .venv..."
-    python -m venv $venvDir
+    & $pythonExe -m venv $venvDir
     Write-Host "  [OK] .venv criado: $venvDir" -ForegroundColor Green
 } else {
     Write-Host "  [OK] .venv ja existe: $venvDir" -ForegroundColor Green
@@ -59,7 +82,7 @@ New-Item -ItemType Directory -Force -Path $reportsDir | Out-Null
 Write-Host "  [OK] Pasta de relatorios pronta: $reportsDir" -ForegroundColor Green
 
 Write-Host ""
-Write-Host "Instalacao concluida." -ForegroundColor Green
+Write-Host "Cerbero instalado com sucesso!" -ForegroundColor Green
 Write-Host "Proximos passos:" -ForegroundColor Yellow
 Write-Host "  1. Reinicie o Claude Code (skills sao carregadas no boot)."
 Write-Host "  2. Digite /Cerbero <URL da LP> para auditar uma oferta."

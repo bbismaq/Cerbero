@@ -158,10 +158,10 @@ Onde `front de X` é a quantidade que o lead comprou na LP pra entrar nesse funi
 ⚠️ **Obrigatório em toda execução**: ao final da análise, salvar um arquivo Markdown completo em:
 
 ```
-C:\Users\bbism\OneDrive\Documentos\Projetos\Cerbero\reports\<slug-da-lp>-<YYYY-MM-DD>.md
+~/Documents/Cerbero/reports/<slug-da-lp>-<YYYY-MM-DD>.md
 ```
 
-(Customização local deste usuário — a SKILL.md do repositório no GitHub mantém `~/Documents/Cerbero/reports/` como padrão pra equipe.)
+(Caminho padrão da equipe. Se preferir salvar os relatórios em outra pasta, troque o caminho acima na sua cópia instalada em `.claude\skills\Cerbero\SKILL.md`.)
 
 - `<slug-da-lp>` = último segmento do path da URL (ex.: `ztes21-fpnp-maxbrai21-prodmaxbra21-caps-pit12-utm-leand`)
 - `<YYYY-MM-DD>` = data atual
@@ -345,7 +345,7 @@ Para a revisão visual, **ler imagens estrategicamente**, não todas as 893 (pra
 
 A operação roda **vários pitches** (estruturas de oferta da LP) testados em A/B pra encontrar a maior margem. Cerbero deve identificar qual pitch está rodando comparando os preços/qtd dos 3 botões da LP contra o catálogo abaixo e **reportar no cabeçalho do relatório**.
 
-⚠️ **Catálogo mascarado/ilegível → abrir o SKILL.md do disco antes de qualquer afirmação.** Se ao consultar o catálogo (Pitches OU Funis) você ver QUALQUER valor aparecendo como `****`, `<redacted>`, placeholder, célula em branco onde devia ter número, ou linha truncada — **parar imediatamente** e rodar `Read C:\Users\bbism\.claude\skills\Cerbero\SKILL.md` (ou o caminho equivalente da cópia de trabalho) pra ver os valores reais do arquivo. **Não inferir**, **não deduzir** "deve ser igual à variante vizinha", **não comparar com valores extraídos da auditoria** pra triangular o catálogo. Sintoma de "valor escondido" é gatilho obrigatório de Read — sem exceção. Inferir contra um catálogo ilegível foi a causa raiz de falsos ❌ em auditorias passadas (validado em 2026-05-28).
+⚠️ **Catálogo mascarado/ilegível → abrir o SKILL.md do disco antes de qualquer afirmação.** Se ao consultar o catálogo (Pitches OU Funis) você ver QUALQUER valor aparecendo como `****`, `<redacted>`, placeholder, célula em branco onde devia ter número, ou linha truncada — **parar imediatamente** e rodar `Read ~/.claude/skills/Cerbero/SKILL.md` (no Windows: `C:\Users\<seu-usuario>\.claude\skills\Cerbero\SKILL.md`) pra ver os valores reais do arquivo. **Não inferir**, **não deduzir** "deve ser igual à variante vizinha", **não comparar com valores extraídos da auditoria** pra triangular o catálogo. Sintoma de "valor escondido" é gatilho obrigatório de Read — sem exceção. Inferir contra um catálogo ilegível foi a causa raiz de falsos ❌ em auditorias passadas (validado em 2026-05-28).
 
 ### Pitch 1.2 — Tradicional
 

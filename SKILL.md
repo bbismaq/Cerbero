@@ -240,6 +240,7 @@ O conteúdo do .md DEVE ter, em ordem:
 - **Elementos do checkout** (timer, exit popup, live buyers count) — validar internamente como sanidade, **NÃO surface no relatório** (nem em seção própria, nem em linha do status geral).
 - **Cálculo de math interna dos upsells** (line-through "De" = $99/un × qtd; "You save" = De menos Por; % de desconto) — validar internamente, **NÃO listar no relatório**. Se a math estiver correta, o item "Upsell 1 — variants batem com catálogo" já cobre.
 - **Divergência de âncora "De" entre voz da VSL e checkout** (ex: voz fala "instead of $178" mas checkout mostra "De $99") — não-acionável, **NÃO entra no relatório**.
+- **Headline "U$X Discount" / "SAVE %" defasado vs desconto calculado** quando o preço cobrado bate com o catálogo — validar internamente (check #11), **NÃO entra no relatório** nem como nota "(preço ok; headline diz...)". Notas "(preço ok; ...)" em linha ✅/⚠️ são proibidas: se o preço está ok e o resto é copy, a linha é ✅ limpa.
 - **Item de "Bonus stack coerente entre voz e visual"** — não-acionável, **NÃO entra no relatório**.
 
 **Princípios do formato:**
@@ -515,7 +516,9 @@ Além do pitch da LP, Cerbero também deve identificar **qual funil de upsell/do
 
 ### Funil 8.1 — MEMORY LOSS
 
-> ⚠️ **Variação memory loss do 8.0.** Upsell 1 e Upsell 2 têm **preços idênticos ao Funil 8.0** (tabelas reproduzidas abaixo pra consulta self-contained). A diferença do 8.1 está nos **downsells**, específicos pra memory loss e **ainda NÃO catalogados** — cadastrar quando definidos. Por ora, só Upsell 1 e Upsell 2. Não auditar downsell do 8.1 contra este catálogo até serem cadastrados.
+> ⚠️ **Variação memory loss do 8.0.** Upsell 1 e Upsell 2 têm **preços idênticos ao Funil 8.0** (tabelas reproduzidas abaixo pra consulta self-contained). A diferença do 8.1 está nos **downsells**, específicos pra memory loss — **catalogados em 2026-06-04** a partir da planilha "VALORES FUNIL DE UPSELL" da base e validados contra a produção do CogniMax 2.0 (todos os valores bateram).
+>
+> ⚠️ **Nomenclatura:** a planilha da base rotula este funil como **"Funil 8.0 - MEMÓRIA"**, e o admin do Pagamerican pode aparecer com nós nomeados "FUNIL 8.0". A skill mantém **8.1** como nome canônico do funil de memory loss — não flagar o rótulo "8.0 - MEMÓRIA"/"FUNIL 8.0" como erro quando os preços baterem com este catálogo.
 
 #### Upsell 1
 
@@ -563,9 +566,72 @@ Além do pitch da LP, Cerbero também deve identificar **qual funil de upsell/do
 | 6 bottles | $29 | $174 |
 | 3 bottles | $33 | $99 |
 
+#### Downsell 1 do Upsell 1
+
+> ⚠️ **Estrutura por front (A/B/C separados)** — diferente do 8.0, onde a variante A serve fronts 1 e 3. Oferta única por variante (sem segunda opção na página).
+
+**Downsell 1-A** (cliente veio do FRONT 01)
+
+| Qtd | $/frasco pago | Total |
+|:--|:--:|:--:|
+| 1 + 1 FREE | $49 | $49 |
+
+**Downsell 1-B** (cliente veio do FRONT 03)
+
+| Qtd | $/frasco pago | Total |
+|:--|:--:|:--:|
+| 3 + 1 FREE | $49 | $147 |
+
+**Downsell 1-C** (cliente veio do FRONT 06)
+
+| Qtd | $/frasco pago | Total |
+|:--|:--:|:--:|
+| 6 bottles | $29 | $174 |
+
+**Notas sobre o Downsell 1 do Upsell 1 do Funil 8.1:**
+- **"$/frasco pago" vale SOMENTE para esta etapa (Downsell 1 do Upsell 1 do Funil 8.1)** — é como o doc da empresa cadastra ela: o FREE é pote gratuito de verdade, não desconto diluído. 1+1 FREE = paga 1 frasco × $49; 3+1 FREE = paga 3 frascos × $49 = $147. Reportar esta etapa nessa convenção. **As demais etapas e funis continuam na convenção padrão do catálogo** ($/frasco = total ÷ qtd).
+- Pra math interna do check #9 (conferir total ÷ frascos contando os FREE), o efetivo por frasco é $24,50 (A) e $36,75 (B) — uso interno do Cerbero, não é valor de catálogo nem entra no relatório.
+- **Downsell 1-B total $147 = Upsell 1-B 6 bottles $147 — intencional, NÃO flagar pelo check #6.** A âncora é o mesmo $49/frasco pago do funil; a base cadastra assim de propósito (validado com a planilha em 2026-06-04).
+- Páginas do Downsell 1 no 8.1 são **copy estática** (sem vídeo) — diferente do 8.0, onde o D1 é em vídeo. Não flagar ausência de vídeo no 8.1.
+
+#### Downsell 2 do Upsell 1
+
+> ⚠️ **Estrutura por front (A/B/C separados)** — diferente do 8.0, onde a variante A serve fronts 1 e 3. Oferta única por variante.
+
+**Downsell 2-A** (cliente veio do FRONT 01)
+
+| Qtd | $/frasco | Total |
+|:--|:--:|:--:|
+| 1 bottle | $59 | $59 |
+
+**Downsell 2-B** (cliente veio do FRONT 03)
+
+| Qtd | $/frasco | Total |
+|:--|:--:|:--:|
+| 2 bottles | $49 | $98 |
+
+**Downsell 2-C** (cliente veio do FRONT 06)
+
+| Qtd | $/frasco | Total |
+|:--|:--:|:--:|
+| 3 bottles | $39 | $117 |
+
+**Notas sobre o Downsell 2 do Upsell 1 do Funil 8.1:**
+- D2-A ($59/un) é mais caro por frasco que o D1-A ($24,50/un incl. FREE) — mesma lógica validada do 8.0 (D2 ancora em preço de lista, last-ditch), **não flagar pelo check #2** quando bater com este catálogo.
+- D2-C (3 bottles · $39/un · $117) coincide com o D2-B do 8.0 — coincidência de valores, funis diferentes.
+
+#### Downsell 1 do Upsell 2
+
+> ⚠️ **Universal — uma única variante atende todos os fronts (1, 3 e 6).** Igual ao 8.0.
+
+| Qtd | $/frasco | Total |
+|:--|:--:|:--:|
+| 3 bottles | $39 | $117 |
+
 **Notas sobre o Funil 8.1:**
 - Mesmo padrão de arredondamento do 8.0: `$/frasco` cadastrado arredondado pra cima; `total` é o valor real cobrado. Cerbero usa o `total` extraído como fonte de verdade.
-- **Downsells do 8.1 ainda não catalogados.** Se aparecer downsell no funil 8.1, tratar pelo check #16 (funil/etapa não catalogada) até cadastro.
+- **Estrutura completa do 8.1** (pro check #17): Upsell 1 + Downsell 1 do Up1 + Downsell 2 do Up1 + Upsell 2 + Downsell 1 do Up2 — em CADA funil (A/B/C).
+- Downsells catalogados em 2026-06-04 (planilha da base + validação contra produção CogniMax 2.0).
 
 ### Como identificar o funil
 
@@ -588,7 +654,7 @@ Além do pitch da LP, Cerbero também deve identificar **qual funil de upsell/do
 8. **% de desconto declarado bate com (1 - unit/original)?** — Pagamerican guarda `priceDiscountPercentage` mas o valor é editado manualmente; recalcular e comparar.
 9. **Pack "X + Y FREE"** — sempre considerar `total_bottles = X + Y` ao calcular por bottle, não só X.
 10. **Per-bottle exibido vs. calculado** — a página do funil mostra `TODAY: $X per bottle` mas pode ter sido arredondado. Comparar com `total ÷ qtd`. **Ignorar arredondamentos** (diferença ≤ $1 em qualquer direção — ex.: $24.50 real exibido como $24 ou $25 é tolerado e NÃO entra no relatório). Só flagar quando a diferença for ≥ $2 (sinal de erro real de copy, não arredondamento).
-11. **Headline "U$X Discount" vs. desconto real calculado** — o número no headline grande (`<span class="discount-highlight">U$80 Discount</span>`) é texto manual e pode estar defasado. Comparar com `(normally × qtd) - total` e flagar.
+11. **Headline "U$X Discount" vs. desconto real calculado** — o número no headline grande (`<span class="discount-highlight">U$80 Discount</span>`) é texto manual e pode estar defasado. Comparar com `(normally × qtd) - total`. **Validação interna — quando o preço cobrado bate com o catálogo, divergência de headline/"SAVE %" NÃO entra no relatório** (é copy de ancoragem, não erro de preço; o usuário não age sobre isso — validado em 2026-06-04). Só surface se a divergência revelar preço errado de fato (o cobrado não bate com o catálogo).
 12. **"De" presente em uns upsells e ausente em outros do mesmo funil** — inconsistência visual.
 13. **Elementos ativos do checkout** — confirmar presença/valor de timer, exit popup (% off), live buyers count nos 3 checkouts da LP. Se diferente entre eles, flagar.
 14. **Coerência Pitch 1.2 vs. 3.2 (presença/ausência do quiz)** — quando os preços batem com 1.2/3.2 (front 1 bottle $89 + 3×$69 + 6×$49), os dois pitches são indistinguíveis pelos preços isolados. Antes de flagar, **procurar sinais autoritativos**:
@@ -597,7 +663,7 @@ Além do pitch da LP, Cerbero também deve identificar **qual funil de upsell/do
     - Se **qualquer** dos dois sinais identifica o pitch, **não flagar** — reportar Pitch 1.2 ou 3.2 confirmado e listar em ✅ Sanity checks com a citação do sinal (ex: "Pitch 1.2 confirmado — slug `semquiz` + payload `PITCH 1.2`").
     - **Só flagar como ambiguidade** quando NENHUM dos dois sinais existe — aí sim pedir pro usuário confirmar manualmente "Esta LP deveria rodar com quiz ou sem?". Esta flag captura erros do tipo "rodou sem quiz mas era pra ser 3.2" e vice-versa.
 15. **Pitch não catalogado** — se os preços/qtd dos 3 botões da LP não baterem com nenhum pitch do catálogo (1.2 / 3.2 / 5.1 / 5.2), **não presuma nada**. Reporte: "🚩 Pitch não catalogado — preços encontrados: [lista]. Não bate com 1.2 / 3.2 / 5.1 / 5.2. Pode ser: (a) erro de digitação no admin, (b) preço residual de versão antiga, ou (c) pitch novo a cadastrar. Confirmar com o time antes de subir."
-16. **Funil não catalogado** — se os preços/qtd de qualquer etapa do funil (upsell/downsell) não baterem com nenhum funil cadastrado no catálogo (atualmente: Funil 8.0), **não presuma**. Reporte: "🚩 Funil não catalogado — etapas encontradas: [lista]. Não bate com Funil 8.0 (diferença: [qual]). Pode ser: (a) erro de copy/admin; (b) funil novo a cadastrar. Verificar com o time."
+16. **Funil não catalogado** — se os preços/qtd de qualquer etapa do funil (upsell/downsell) não baterem com nenhum funil cadastrado no catálogo (atualmente: Funil 8.0 e Funil 8.1), **não presuma**. Reporte: "🚩 Funil não catalogado — etapas encontradas: [lista]. Não bate com Funil 8.0 / 8.1 (diferença: [qual]). Pode ser: (a) erro de copy/admin; (b) funil novo a cadastrar. Verificar com o time."
 17. **Completude estrutural do funil** — uma vez identificado qual funil está rodando (ex: Funil 8.0), comparar a estrutura extraída do payload **etapa por etapa** contra a estrutura catalogada. Listar explicitamente cada etapa esperada e marcar PRESENTE ou AUSENTE. Qualquer ausência é 🔴 obrigatório em "Ações", mesmo que as etapas presentes estejam todas corretas. Exemplo Funil 8.0: deve ter Upsell 1 + Downsell 1 do Up1 + Downsell 2 do Up1 + Upsell 2 + Downsell 1 do Up2 em CADA funil (A/B/C). Se algum desses está ausente, o admin precisa cadastrar — funil incompleto deixa dinheiro na mesa. **Este check é independente dos checks de preço/math**: posso ter math perfeita nas etapas presentes E ainda assim o funil estar incompleto. Não dar "pode subir" antes de validar estrutura.
 
 ## Outputs auxiliares (opcionais)

@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.0] — 2026-06-04
+
+- **Funil 8.1: downsells catalogados** (antes constavam como "ainda não catalogados"):
+  - Downsell 1 do Upsell 1 (por front): A: 1+1 FREE · $49/frasco pago · total $49 · B: 3+1 FREE · $49/frasco pago · total $147 · C: 6 bottles · $29/un · total $174. Convenção "$/frasco pago" vale só pra esta etapa (FREE é pote gratuito de verdade).
+  - Downsell 2 do Upsell 1 (por front): A: 1 bottle · $59 · B: 2 bottles · $49/un ($98) · C: 3 bottles · $39/un ($117).
+  - Downsell 1 do Upsell 2 (universal): 3 bottles · $39/un ($117).
+- Notas de proteção do 8.1: D1-B total $147 = Upsell 1-B 6 bottles é intencional (não flagar check #6); downsells do 8.1 são copy estática, sem vídeo (não flagar); estrutura completa esperada pro check #17.
+- Nomenclatura: planilha da base chama o funil de "Funil 8.0 - MEMÓRIA" e o admin pode rotular "FUNIL 8.0" — não flagar quando os preços baterem com o 8.1.
+- Check #11 (headline "U$X Discount"/"SAVE %") rebaixado pra validação interna: quando o preço cobrado bate com o catálogo, divergência de headline não entra no relatório. Notas "(preço ok; ...)" em linha de etapa ficaram proibidas.
+- Check #16 atualizado: catálogo agora cobre Funil 8.0 e Funil 8.1.
+
 ## [0.2.2] — 2026-05-19
 
 - Nome da skill voltou pra `Cerbero` (com C maiúsculo) em frontmatter, headings, slash command, paths e install scripts. Reverte a padronização lowercase da 0.2.1.

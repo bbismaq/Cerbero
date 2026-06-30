@@ -1,5 +1,5 @@
 ---
-name: Cerbero
+name: cerbero
 description: Audita uma VSL/LP e seus checkouts no Pagamerican (3 botões + funil de upsell/downsell) sem precisar assistir o vídeo nem comprar. Extrai preço, preço por bottle, valor "De", "You save" e % de desconto de cada oferta e flagra divergências.
 ---
 
@@ -9,13 +9,13 @@ Skill para auditar VSLs com checkouts no Pagamerican.app. Em vez de acelerar o v
 
 ## Saudação ao ativar a skill
 
-Quando o usuário invocar `/Cerbero` **sem URL** no comando (ex: digita só `/Cerbero` ou `/Cerbero` seguido de pergunta sem URL), responder **exatamente** com a mensagem:
+Quando o usuário invocar `/cerbero` **sem URL** no comando (ex: digita só `/cerbero` ou `/cerbero` seguido de pergunta sem URL), responder **exatamente** com a mensagem:
 
 > Envie a URL do funil a ser auditado.
 
 Sem mais nada — sem explicação extra, sem listar capacidades, sem perguntar mais nada. O usuário já sabe o que a skill faz.
 
-Se o usuário invocar `/Cerbero <URL>` (URL já presente na mensagem), pular essa saudação e iniciar o procedimento de auditoria direto.
+Se o usuário invocar `/cerbero <URL>` (URL já presente na mensagem), pular essa saudação e iniciar o procedimento de auditoria direto.
 
 ## Quando usar
 
@@ -161,7 +161,7 @@ Onde `front de X` é a quantidade que o lead comprou na LP pra entrar nesse funi
 ~/Documents/Cerbero/reports/<slug-da-lp>-<YYYY-MM-DD>.md
 ```
 
-(Caminho padrão da equipe. Se preferir salvar os relatórios em outra pasta, troque o caminho acima na sua cópia instalada em `.claude\skills\Cerbero\SKILL.md`.)
+(Caminho padrão da equipe. Se preferir salvar os relatórios em outra pasta, troque o caminho acima na sua cópia instalada em `.claude\skills\cerbero\SKILL.md`.)
 
 - `<slug-da-lp>` = último segmento do path da URL (ex.: `ztes21-fpnp-maxbrai21-prodmaxbra21-caps-pit12-utm-leand`)
 - `<YYYY-MM-DD>` = data atual
@@ -272,8 +272,8 @@ Executar quando o fluxo padrão estiver ativo (URL sem pedido específico) ou qu
 Player VTurb geralmente exige clique pra disparar o stream. Em LPs com teste A/B, a variante de vídeo ativa só é decidida em tempo de execução pelo `player.js` — não dá pra extrair estaticamente do HTML. Usar script com browser headless:
 
 ```powershell
-~/.claude/skills/Cerbero/.venv/Scripts/python.exe `
-  ~/.claude/skills/Cerbero/scripts/extract_m3u8.py `
+~/.claude/skills/cerbero/.venv/Scripts/python.exe `
+  ~/.claude/skills/cerbero/scripts/extract_m3u8.py `
   --url "<URL_DA_LP>" `
   --output "<caminho/m3u8.txt>"
 ```
@@ -346,7 +346,7 @@ Para a revisão visual, **ler imagens estrategicamente**, não todas as 893 (pra
 
 A operação roda **vários pitches** (estruturas de oferta da LP) testados em A/B pra encontrar a maior margem. Cerbero deve identificar qual pitch está rodando comparando os preços/qtd dos 3 botões da LP contra o catálogo abaixo e **reportar no cabeçalho do relatório**.
 
-⚠️ **Catálogo mascarado/ilegível → abrir o SKILL.md do disco antes de qualquer afirmação.** Se ao consultar o catálogo (Pitches OU Funis) você ver QUALQUER valor aparecendo como `****`, `<redacted>`, placeholder, célula em branco onde devia ter número, ou linha truncada — **parar imediatamente** e rodar `Read ~/.claude/skills/Cerbero/SKILL.md` (no Windows: `C:\Users\<seu-usuario>\.claude\skills\Cerbero\SKILL.md`) pra ver os valores reais do arquivo. **Não inferir**, **não deduzir** "deve ser igual à variante vizinha", **não comparar com valores extraídos da auditoria** pra triangular o catálogo. Sintoma de "valor escondido" é gatilho obrigatório de Read — sem exceção. Inferir contra um catálogo ilegível foi a causa raiz de falsos ❌ em auditorias passadas (validado em 2026-05-28).
+⚠️ **Catálogo mascarado/ilegível → abrir o SKILL.md do disco antes de qualquer afirmação.** Se ao consultar o catálogo (Pitches OU Funis) você ver QUALQUER valor aparecendo como `****`, `<redacted>`, placeholder, célula em branco onde devia ter número, ou linha truncada — **parar imediatamente** e rodar `Read ~/.claude/skills/cerbero/SKILL.md` (no Windows: `C:\Users\<seu-usuario>\.claude\skills\cerbero\SKILL.md`) pra ver os valores reais do arquivo. **Não inferir**, **não deduzir** "deve ser igual à variante vizinha", **não comparar com valores extraídos da auditoria** pra triangular o catálogo. Sintoma de "valor escondido" é gatilho obrigatório de Read — sem exceção. Inferir contra um catálogo ilegível foi a causa raiz de falsos ❌ em auditorias passadas (validado em 2026-05-28).
 
 ### Pitch 1.2 — Tradicional
 

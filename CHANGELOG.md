@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.0] — 2026-06-29
+
+- Nome da skill padronizado em lowercase pra bater com as outras skills da operação (sentinela, copychief): campo `name:` do frontmatter `Cerbero` → `cerbero`, slash command `/Cerbero` → `/cerbero`, e pasta de instalação `~/.claude/skills/Cerbero` → `~/.claude/skills/cerbero` (frontmatter, install scripts, README, paths internos da SKILL.md).
+- **Mantidos capitalizados de propósito** (mesmo padrão de sentinela/copychief): o heading `# Cerbero —`, o nome próprio "Cerbero" no corpo do texto, a pasta de relatórios `~/Documents/Cerbero/reports/` (pasta de dados, não o nome da skill) e o nome do repo no GitHub (`bbismaq/Cerbero`).
+- Já tinha sido tentado na 0.2.1 e revertido na 0.2.2 (mesmo dia, sem motivo técnico documentado — causa provável: sync de sessão paralela com cache velho sobrescreveu a mudança). Desta vez commitado de uma vez nos dois lados (working + deployed) pra fixar.
+
 ## [0.3.0] — 2026-06-04
 
 - **Funil 8.1: downsells catalogados** (antes constavam como "ainda não catalogados"):

@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 
 $skillSrc      = Join-Path $PSScriptRoot "SKILL.md"
 $scriptsSrc    = Join-Path $PSScriptRoot "scripts"
-$skillDestDir  = Join-Path $env:USERPROFILE ".claude\skills\Cerbero"
+$skillDestDir  = Join-Path $env:USERPROFILE ".claude\skills\cerbero"
 $skillDest     = Join-Path $skillDestDir "SKILL.md"
 $scriptsDest   = Join-Path $skillDestDir "scripts"
 $venvDir       = Join-Path $skillDestDir ".venv"
@@ -85,5 +85,5 @@ Write-Host ""
 Write-Host "Cerbero instalado com sucesso!" -ForegroundColor Green
 Write-Host "Proximos passos:" -ForegroundColor Yellow
 Write-Host "  1. Reinicie o Claude Code (skills sao carregadas no boot)."
-Write-Host "  2. Digite /Cerbero <URL da LP> para auditar uma oferta."
+Write-Host "  2. Digite /cerbero <URL da LP> para auditar uma oferta."
 Write-Host "  3. Relatorios serao salvos em: $reportsDir"

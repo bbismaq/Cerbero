@@ -5,7 +5,7 @@
 set -e
 
 SKILL_SRC="$(dirname "$0")/SKILL.md"
-SKILL_DEST_DIR="$HOME/.claude/skills/Cerbero"
+SKILL_DEST_DIR="$HOME/.claude/skills/cerbero"
 SKILL_DEST="$SKILL_DEST_DIR/SKILL.md"
 REPORTS_DIR="$HOME/Documents/Cerbero/reports"
 
@@ -28,5 +28,5 @@ echo ""
 echo "Instalacao concluida."
 echo "Proximos passos:"
 echo "  1. Reinicie o Claude Code (skills sao carregadas no boot)."
-echo "  2. Digite /Cerbero <URL da LP> para auditar uma oferta."
+echo "  2. Digite /cerbero <URL da LP> para auditar uma oferta."
 echo "  3. Relatorios serao salvos em: $REPORTS_DIR"

@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.0] — 2026-07-06
+
+- Repo movido para `Documentos/Skills/Cerbero` (antes `Documentos/Projetos/Cerbero`).
+- Pasta de relatórios passou de `~/Documents/Cerbero/reports/` (fora do repo, caminho que na prática batia na pasta `Documents` errada em máquinas com OneDrive redirecionando `Documentos`) para `reports_cerbero/` **dentro do próprio repo**. Atualizado em `SKILL.md`, `install.ps1`, `install.sh` e `README.md`.
+- `reports_cerbero/` agora é versionada como pasta (via `.gitkeep`), mas o conteúdo dos relatórios continua ignorado pelo git — cada usuário mantém os seus.
+
 ## [0.4.0] — 2026-06-29
 
 - Nome da skill padronizado em lowercase pra bater com as outras skills da operação (sentinela, copychief): campo `name:` do frontmatter `Cerbero` → `cerbero`, slash command `/Cerbero` → `/cerbero`, e pasta de instalação `~/.claude/skills/Cerbero` → `~/.claude/skills/cerbero` (frontmatter, install scripts, README, paths internos da SKILL.md).

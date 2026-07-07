@@ -9,7 +9,7 @@ $skillDestDir  = Join-Path $env:USERPROFILE ".claude\skills\cerbero"
 $skillDest     = Join-Path $skillDestDir "SKILL.md"
 $scriptsDest   = Join-Path $skillDestDir "scripts"
 $venvDir       = Join-Path $skillDestDir ".venv"
-$reportsDir    = Join-Path $env:USERPROFILE "Documents\Cerbero\reports"
+$reportsDir    = Join-Path $PSScriptRoot "reports_cerbero"
 
 if (-not (Test-Path $skillSrc)) {
     Write-Host "ERRO: SKILL.md nao encontrado em $skillSrc" -ForegroundColor Red

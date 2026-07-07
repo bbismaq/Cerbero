@@ -1,5 +1,7 @@
 # Relatórios gerados pela skill — cada usuário tem os seus, não versionar
-reports/
+# (a pasta em si é versionada via .gitkeep, só o conteúdo é ignorado)
+reports_cerbero/*
+!reports_cerbero/.gitkeep
 
 # Arquivos de scratch criados durante análise (HTML cru baixado pelo curl)
 co_*.html

@@ -7,7 +7,7 @@ set -e
 SKILL_SRC="$(dirname "$0")/SKILL.md"
 SKILL_DEST_DIR="$HOME/.claude/skills/cerbero"
 SKILL_DEST="$SKILL_DEST_DIR/SKILL.md"
-REPORTS_DIR="$HOME/Documents/Cerbero/reports"
+REPORTS_DIR="$(dirname "$0")/reports_cerbero"
 
 if [ ! -f "$SKILL_SRC" ]; then
   echo "ERRO: SKILL.md nao encontrado em $SKILL_SRC"

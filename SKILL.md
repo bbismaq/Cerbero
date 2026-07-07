@@ -158,14 +158,14 @@ Onde `front de X` é a quantidade que o lead comprou na LP pra entrar nesse funi
 ⚠️ **Obrigatório em toda execução**: ao final da análise, salvar um arquivo Markdown completo em:
 
 ```
-~/Documents/Cerbero/reports/<slug-da-lp>-<YYYY-MM-DD>.md
+C:\Users\bbism\OneDrive\Documentos\Skills\Cerbero\reports_cerbero\<slug-da-lp>-<YYYY-MM-DD>.md
 ```
 
 (Caminho padrão da equipe. Se preferir salvar os relatórios em outra pasta, troque o caminho acima na sua cópia instalada em `.claude\skills\cerbero\SKILL.md`.)
 
 - `<slug-da-lp>` = último segmento do path da URL (ex.: `ztes21-fpnp-maxbrai21-prodmaxbra21-caps-pit12-utm-leand`)
 - `<YYYY-MM-DD>` = data atual
-- Se a pasta `reports\` não existir, criar antes de escrever.
+- Se a pasta `reports_cerbero\` não existir, criar antes de escrever.
 - Se já existir um arquivo com mesmo nome (rodando 2x no mesmo dia), apendar `-<HHMM>` no final.
 
 O conteúdo do .md DEVE ter, em ordem:
